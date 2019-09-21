@@ -6,8 +6,8 @@ public class VehicleFront {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Car getWaterLevel = new Car();
-		System.out.println(getWaterLevel.getCurrentKm());
+		Car vehicleStatus = new Car();
+		System.out.println("Combustível atual: " + vehicleStatus.getCurrentKm());
 		
 	}
 
