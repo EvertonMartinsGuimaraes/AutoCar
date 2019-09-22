@@ -1,10 +1,15 @@
 package br.edu.unibratec.view;
 
-public class VehicleFront {
+import br.edu.unibratec.control.PlaceController;
 
+public class VehicleFront {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		VehicleController V = new VehicleController();
+		V.carStatus();
+		PlaceController P = new PlaceController();
+		P.addInitialPlaces();
+		P.getPlacesList();
 
 	}
-
 }

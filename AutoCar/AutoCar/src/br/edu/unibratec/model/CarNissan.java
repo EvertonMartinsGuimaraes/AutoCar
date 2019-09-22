@@ -2,12 +2,12 @@ package br.edu.unibratec.model;
 
 import interfaces.ICarModel;
 
-public class CarFiat extends Car implements ICarModel {
+public class CarNissan extends Car implements ICarModel {
 
-	private static final double oilReductionRate = 0.02, waterReductionRate = 0.01, gasConsumptionRate = 7;
-	private static final int eachReviewKm = 3000;
+	private static final double oilReductionRate = 0.05, waterReductionRate = 0.01, gasConsumptionRate = 8;
+	private static final int eachReviewKm = 7000;
 
-	public CarFiat() {
+	public CarNissan() {
 		super.setOilLevel(1000);
 		super.setCurrentKm(0);
 		super.setGasLevel(100);
@@ -32,8 +32,6 @@ public class CarFiat extends Car implements ICarModel {
 		return eachReviewKm;
 	}
 
-	//routeRate é a taxa de variação conforme a rota escolhida. Urbano consome mais.
-	
 	public void setOilReduction(int kmDistance, double routeRate) {
 		
 		setOilLevel((super.getOilLevel() - (getOilreductionrate() * kmDistance))*routeRate);
@@ -92,5 +90,4 @@ public class CarFiat extends Car implements ICarModel {
 	public int getRemainingKm() {
 		return super.getRemainingKm();
 	}
-
 }

@@ -2,15 +2,19 @@ package br.edu.unibratec.model;
 
 public class Place {
 	private String name;
-	private int kmZero;
-	private boolean possiblePlace;
+	private ROUTE_TYPE route;
+	private int distance;
 
-	public Place(String name, int kmZero, boolean possiblePlace) {
+	public Place(String name, ROUTE_TYPE route, int distance) {
 		this.name = name;
-		this.kmZero = kmZero;
-		this.possiblePlace = possiblePlace;
+		this.route = route;
+		this.setDistance(distance);
 	}
 
+	public static enum ROUTE_TYPE {
+	ROADWAY, URBAN
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -19,19 +23,19 @@ public class Place {
 		this.name = name;
 	}
 
-	public int getKmZero() {
-		return kmZero;
+	public ROUTE_TYPE getRoute() {
+		return route;
 	}
 
-	public void setKmZero(int kmZero) {
-		this.kmZero = kmZero;
+	public void setRoute(ROUTE_TYPE route) {
+		this.route = route;
 	}
 
-	public boolean isPossiblePlace() {
-		return possiblePlace;
+	public int getDistance() {
+		return distance;
 	}
 
-	public void setPossiblePlace(boolean possiblePlace) {
-		this.possiblePlace = possiblePlace;
+	public void setDistance(int distance) {
+		this.distance = distance;
 	}
 }

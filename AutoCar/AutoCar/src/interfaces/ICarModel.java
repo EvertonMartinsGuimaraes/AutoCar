@@ -1,17 +1,31 @@
 package interfaces;
 
+
 public interface ICarModel {
 
-	public void setOilReduction(int kmDistance);
+	public void setOilReduction(int kmDistance, double routeRate);
 
-	public void setWaterReduction(int kmDistance);
+	public void setWaterReduction(int kmDistance, double routeRate);
 
-	public void setGasReduction(int kmDistance);
+	public void setGasReduction(int kmDistance, double routeRate);
 
-	public void setKmReduction(int kmDistance);
+	public void setKmReduction(int kmDistance, double routeRate);
 
 	public void setKmForReview();
 
-	public void setNewReview(int kmDistance);
-
-}
+	public void setNewReview();
+	
+	public double getOilLevel();
+	
+	public double getGasLevel();
+	
+	public double getWaterLevel();
+	
+	public int getCurrentKm();
+	
+	public int getRemainingKm();
+	
+	public int getNextReview();
+	
+		
+	}

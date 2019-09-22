@@ -1,12 +1,19 @@
 package br.edu.unibratec.control;
 
+import br.edu.unibratec.model.CarVolkswagem;
+import interfaces.ICarModel;
+
 public class CarController {
+	private ICarModel car;
 
-	public void carController() {
+//ALTERAR VEICULO NESSE METODO.
+	public CarController() {
+		car = new CarVolkswagem();
 
 	}
 
-	public void carStatus() {
-
+	public ICarModel getCarModel() {
+		return this.car;
 	}
+
 }

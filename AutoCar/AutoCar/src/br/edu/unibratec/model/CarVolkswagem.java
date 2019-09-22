@@ -4,55 +4,60 @@ import interfaces.ICarModel;
 
 public class CarVolkswagem extends Car implements ICarModel {
 
-	private static final double oilReductionRate = 0.03, waterReductionRate = 0.02, gasReductionRate = 7;
+	private static final double oilReductionRate = 0.03, waterReductionRate = 0.02, gasConsumptionRate = 5;
 	private static final int eachReviewKm = 5000;
 
-	public CarVolkswagem(double oilLevel, double waterLevel, int currentKm, int remainingKm, double gasLevel) {
-		super(oilLevel, waterLevel, currentKm, remainingKm, gasLevel);
-		setNextReview(eachReviewKm);
-	}
-
-	public static double getOilreductionrate() {
-		return oilReductionRate;
+	public CarVolkswagem() {
+		super.setOilLevel(1000);
+		super.setCurrentKm(0);
+		super.setGasLevel(100);
+		super.setNextReview(eachReviewKm);
+		super.setRemainingKm(eachReviewKm);
+		super.setWaterLevel(1000);
 	}
 
 	public static double getWaterreductionrate() {
 		return waterReductionRate;
 	}
 
-	public static double getGasreductionrate() {
-		return gasReductionRate;
+	public static double gasConsumptionRate() {
+		return gasConsumptionRate;
+	}
+
+	public static double getOilreductionrate() {
+		return oilReductionRate;
 	}
 
 	public static int getEachreviewkm() {
 		return eachReviewKm;
 	}
 
-	public void setOilReduction(int kmDistance) {
-
-		setOilLevel(getOilLevel() - (getOilreductionrate() * kmDistance));
+	public void setOilReduction(int kmDistance, double routeRate) {
+		
+		setOilLevel((super.getOilLevel() - (getOilreductionrate() * kmDistance))*routeRate);
 	}
 
-	public void setWaterReduction(int kmDistance) {
-		setWaterLevel(getWaterLevel() - (getWaterreductionrate() * kmDistance));
+	public void setWaterReduction(int kmDistance, double routeRate) {
+		
+		setWaterLevel((super.getWaterLevel() - (getWaterreductionrate() * kmDistance))*routeRate);
 	}
 
-	public void setGasReduction(int kmDistance) {
-		setGasLevel(getGasLevel() - (kmDistance/getGasreductionrate()));
+	public void setGasReduction(int kmDistance, double routeRate) {
+		setGasLevel((super.getGasLevel() - (kmDistance  / gasConsumptionRate()))*routeRate);
 	}
 
-	public void setKmReduction(int kmDistance) {
-		setCurrentKm((getCurrentKm() + kmDistance));
+	public void setKmReduction(int kmDistance, double routeRate) {
+		setCurrentKm((super.getCurrentKm() + kmDistance));
 
 	}
 
 	public void setKmForReview() {
 
-		setRemainingKm(getNextReview() - (getCurrentKm()));
+		setRemainingKm(super.getNextReview() - (super.getCurrentKm()));
 	}
 
-	public void setNewReview(int kmDistance) {
-		int km = getCurrentKm() + kmDistance;
+	public void setNewReview() {
+		int km = super.getCurrentKm();
 		int nextReview = getEachreviewkm();
 
 		for (; km / getEachreviewkm() >= 1;) {
@@ -60,5 +65,29 @@ public class CarVolkswagem extends Car implements ICarModel {
 			nextReview = nextReview + getEachreviewkm();
 		}
 		setNextReview(nextReview);
+	}
+
+	public double getOilLevel() {
+		return super.getOilLevel();
+	}
+
+	public double getGasLevel() {
+		return super.getGasLevel();
+	}
+
+	public double getWaterLevel() {
+		return super.getWaterLevel();
+	}
+
+	public int getCurrentKm() {
+		return super.getCurrentKm();
+	}
+	
+	public int getNextReview() {
+		return super.getNextReview();
+	}
+	
+	public int getRemainingKm() {
+		return super.getRemainingKm();
 	}
 }

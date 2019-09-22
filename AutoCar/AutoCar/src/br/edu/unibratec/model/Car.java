@@ -14,7 +14,11 @@ public class Car {
 		this.currentKm = currentKm;
 		this.remainingKm = remainingKm;
 		this.gasLevel = gasLevel;
-		
+
+	}
+
+	public Car() {
+
 	}
 
 	public double getOilLevel() {
