@@ -1,5 +1,7 @@
 package br.edu.unibratec.model;
 
+
+// CLASSE PAI CAR
 public class Car {
 	private double oilLevel;
 	private double waterLevel;
