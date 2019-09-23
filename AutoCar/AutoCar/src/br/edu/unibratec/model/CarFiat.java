@@ -2,11 +2,16 @@ package br.edu.unibratec.model;
 
 import interfaces.ICarModel;
 
-public class CarFiat extends Car implements ICarModel {
 
+/*EXEMPLO DE CARRO CRIADO.
+EM CASO DE NOVO CARRO SÓ É NECESSARIO CRIAR UMA NOVA CLASSE COMO ESSA E ALTERAR SOMENTE AS VARIAVEIS CONSTANTES.*/
+public class CarFiat extends Car implements ICarModel {
+		
+	//CONSTANTES PARA ESSE CARRO.
 	private static final double oilReductionRate = 0.02, waterReductionRate = 0.01, gasConsumptionRate = 7;
 	private static final int eachReviewKm = 3000;
-
+		
+	//CONSTRUTOR - PADRÃO PARA TODOS OS CARROS.
 	public CarFiat() {
 		super.setOilLevel(1000);
 		super.setCurrentKm(0);
@@ -16,6 +21,8 @@ public class CarFiat extends Car implements ICarModel {
 		super.setWaterLevel(1000);
 	}
 
+	
+	//ABAIXO OS METODOS SET - PARA ALTERAÇÃO DE NIVEIS E KM E GET - PARA ACESSO A ESSES DADOS 
 	public static double getWaterreductionrate() {
 		return waterReductionRate;
 	}
@@ -31,9 +38,8 @@ public class CarFiat extends Car implements ICarModel {
 	public static int getEachreviewkm() {
 		return eachReviewKm;
 	}
-
-	//routeRate é a taxa de variação conforme a rota escolhida. Urbano consome mais.
 	
+	//routeRate É A TAXA DE VARIAÇÃO CONFORME A ROTA ESCOLHIDA. TRECHO URBAN CONSOME MAIS.
 	public void setOilReduction(int kmDistance, double routeRate) {
 		
 		setOilLevel((super.getOilLevel() - (getOilreductionrate() * kmDistance))*routeRate);
@@ -52,6 +58,12 @@ public class CarFiat extends Car implements ICarModel {
 		setCurrentKm((super.getCurrentKm() + kmDistance));
 
 	}
+	
+	public void overhaul(int gasRefill, int watterRefill, int oilRefill) {
+			setGasLevel(gasRefill);
+			setOilLevel(oilRefill);
+			setWaterLevel(watterRefill);
+		}
 
 	public void setKmForReview() {
 
