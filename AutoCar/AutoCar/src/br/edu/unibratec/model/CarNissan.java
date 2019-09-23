@@ -32,6 +32,8 @@ public class CarNissan extends Car implements ICarModel {
 		return eachReviewKm;
 	}
 
+	//routeRate é a taxa de variação conforme a rota escolhida. Urbano consome mais.
+	
 	public void setOilReduction(int kmDistance, double routeRate) {
 		
 		setOilLevel((super.getOilLevel() - (getOilreductionrate() * kmDistance))*routeRate);
@@ -50,6 +52,12 @@ public class CarNissan extends Car implements ICarModel {
 		setCurrentKm((super.getCurrentKm() + kmDistance));
 
 	}
+	
+	public void overhaul(int gasRefill, int watterRefill, int oilRefill) {
+			setGasLevel(gasRefill);
+			setOilLevel(oilRefill);
+			setWaterLevel(watterRefill);
+		}
 
 	public void setKmForReview() {
 
@@ -90,4 +98,5 @@ public class CarNissan extends Car implements ICarModel {
 	public int getRemainingKm() {
 		return super.getRemainingKm();
 	}
+
 }
