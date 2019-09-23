@@ -1,6 +1,6 @@
 package interfaces;
 
-
+//INTERFACE MODELO DOS CARROS A SEREM CRIADOS.
 public interface ICarModel {
 
 	public void setOilReduction(int kmDistance, double routeRate);
@@ -10,7 +10,9 @@ public interface ICarModel {
 	public void setGasReduction(int kmDistance, double routeRate);
 
 	public void setKmReduction(int kmDistance, double routeRate);
-
+	
+	public void overhaul(int refillGas,int refillOil, int refillWatter);
+	
 	public void setKmForReview();
 
 	public void setNewReview();
