@@ -9,6 +9,7 @@ public class PlaceController {
 	
 	List<Place> places = new ArrayList<Place>();
 	
+	//METODO PARA ADICIONAR LUGARES NO ARRAY
 	public void addInitialPlaces() {
 		Place porto = new Place("Porto de galinhas", ROUTE_TYPE.ROADWAY, 100);
 		places.add(porto);
@@ -18,6 +19,7 @@ public class PlaceController {
 		places.add(mariaFarinha);
 	}
 	
+	//GET PARA ACESSO AO ARRAY
 	public  List<Place> getPlacesList() {
 		return places;
 	}
