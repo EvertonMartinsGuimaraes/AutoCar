@@ -1,7 +1,6 @@
 package br.edu.unibratec.control;
 
 import br.edu.unibratec.model.CarFiat;
-import br.edu.unibratec.model.CarVolkswagem;
 import interfaces.ICarModel;
 
 public class CarController {
